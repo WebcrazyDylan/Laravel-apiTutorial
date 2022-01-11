@@ -19,6 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('todos', 'App\Http\Controllers\TodoController@index')->name('todos.index');
-Route::get('todos/{id}', 'App\Http\Controllers\TodoController@show')->name('todos.show');
+
+// Route::get('todos/{id}', 'App\Http\Controllers\TodoController@show')->name('todos.show');
+Route::get('todos/{fetchedTodo}', 'App\Http\Controllers\TodoController@show')->name('todos.show');
+
 Route::post('todos', 'App\Http\Controllers\TodoController@store')->name('todos.store');
-Route::put('todos/{id}', 'App\Http\Controllers\TodoController@update')->name('todos.update');
+
+Route::put('todos/{fetchedTodo}', 'App\Http\Controllers\TodoController@update')->name('todos.update');
+Route::delete('todos/{fetchedTodo}', 'App\Http\Controllers\TodoController@destroy')->name('todos.destroy');
